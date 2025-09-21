@@ -1,0 +1,47 @@
+def es_primo(n):
+
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):  
+        if n % i == 0:
+            return False
+    return True
+
+def clasificar_numeros(lista_numeros):
+    
+    pares = []
+    impares = []
+    primos = []
+
+
+    for num in lista_numeros:
+    
+        if num % 2 == 0:
+            pares.append(num)
+        else:
+            impares.append(num)
+
+        
+        if es_primo(num):
+            primos.append(num)
+
+    return pares, impares, primos
+
+
+print("Clasificador de Números")
+
+
+entrada = input("Introduce números: ")
+
+
+numeros = [int(x) for x in entrada.split()]
+
+
+pares, impares, primos = clasificar_numeros(numeros)
+
+
+print("\nResultados:")
+print(f"Números pares: {pares} (total: {len(pares)})")
+print(f"Números impares: {impares} (total: {len(impares)})")
+print(f"Números primos: {primos} (total: {len(primos)})")
+
